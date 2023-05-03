@@ -8,7 +8,7 @@ jobs:
     name: 'Terraform Unit Tests'
     uses: yorkutest/templates/.github/workflows/tf-unit-tests.yml@main
   dev-plan:
-    name: 'Terraform Dev 2 Plan/Apply'
+    name: 'Terraform Dev Plan'
     needs: [unit-tests]
     uses: yorkutest/templates/.github/workflows/tf-plan-apply.yml@main
     with:
