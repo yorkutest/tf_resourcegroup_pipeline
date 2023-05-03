@@ -1,0 +1,17 @@
+name: 'Terraform Dev Plan/Apply'
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  dev:
+    name: 'Terraform Dev 2 Plan/Apply'
+    uses: yorkutest/templates/.github/workflows/tf-plan-apply.yml@main
+    with:
+      storageAccountInfo: ${{ vars.TF_STORAGE_ACCOUNT_INFO }}
+      deploymentType: 'Create'
+      commandOptions: '-var-file=variables/dev.tfvars'
+      storageKey: 'projectName/dev/test_rg.tfstate'
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
