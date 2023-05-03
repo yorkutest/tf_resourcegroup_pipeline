@@ -2,7 +2,8 @@ name: 'Terraform Unit Tests'
 
 on:
   push:
-    - !main
+    branches:
+      - !main
 
 jobs:
   unit-tests:
