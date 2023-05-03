@@ -1,11 +1,11 @@
-name: 'Terraform Plan/Apply'
+name: 'Terraform Dev Plan/Apply'
 
 on:
   push:
 
 jobs:
   call-workflow:
-    name: 'Terraform Plan/Apply'
+    name: 'Terraform Dev 2 Plan/Apply'
     uses: yorkutest/templates/.github/workflows/tf-plan-apply.yml@main
     with:
       storageAccountInfo: ${{ vars.TF_STORAGE_ACCOUNT_INFO }}
