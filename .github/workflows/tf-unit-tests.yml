@@ -3,6 +3,7 @@ name: 'Terraform Unit Tests'
 on:
   push:
     branches:
+      - '*'
       - '!main'
 
 jobs:
@@ -21,3 +22,4 @@ jobs:
       target-env: development
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
+
