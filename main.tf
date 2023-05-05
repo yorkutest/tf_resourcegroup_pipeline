@@ -1,5 +1,5 @@
 module "rg" {
-  source                = "git@github.com:yorkutest/tf_resourcegroup_module?ref=maxtest"
+  source = "git::https://<user>:<pat>@github.com/yorkutest/tf_resourcegroup_pipeline?ref=maxtest""
   resourceGroupName     = var.resourceGroupName
   resourceGroupLocation = var.resourceGroupLocation
   tags                  = var.tags
