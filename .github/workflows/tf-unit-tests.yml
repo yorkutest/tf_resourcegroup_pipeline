@@ -1,15 +1,14 @@
 name: 'Terraform Unit Tests'
 
 on:
-  push:
+  pull_request:
     branches:
-      - '*'
-      - '!main'
+      - main
 
 jobs:
   unit-tests:
     name: 'Terraform Unit Tests'
-    uses: yorkutest/templates/.github/workflows/tf-unit-tests.yml@main
+    uses: yorkutest/templates/.github/workflows/tf-unit-tests.yml@maxtest
   dev-plan:
     name: 'Terraform Dev Plan'
     needs: [unit-tests]
