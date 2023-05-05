@@ -22,4 +22,3 @@ jobs:
       target-env: development
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
-
