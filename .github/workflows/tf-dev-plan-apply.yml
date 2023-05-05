@@ -41,6 +41,6 @@ jobs:
       deploymentType: 'Create'
       commandOptions: '-var-file=variables/production.tfvars'
       storageKey: 'projectName/production/test_rg.tfstate'
-      target-env: stage
+      target-env: production
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
