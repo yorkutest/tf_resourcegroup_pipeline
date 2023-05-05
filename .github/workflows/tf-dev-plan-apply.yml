@@ -5,14 +5,40 @@ on:
     branches:
       - main
 jobs:
-  dev:
-    name: 'Terraform Dev 2 Plan/Apply'
-    uses: yorkutest/templates/.github/workflows/tf-plan-apply_env.yml@main
+  deploy_dev:
+    name: 'Deploy to development'
+    uses: yorkutest/templates/.github/workflows/tf-plan-apply_env.yml@maxtest
     with:
       storageAccountInfo: ${{ vars.TF_STORAGE_ACCOUNT_INFO }}
       deploymentType: 'Create'
-      commandOptions: '-var-file=variables/dev.tfvars'
+      commandOptions: '-var-file=variables/development.tfvars'
       storageKey: 'projectName/dev/test_rg.tfstate'
       target-env: development
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy_stage:
+    name: 'Deploy to staging'
+    needs: deploy_dev
+    uses: yorkutest/templates/.github/workflows/tf-plan-apply_env.yml@maxtest
+    with:
+      storageAccountInfo: ${{ vars.TF_STORAGE_ACCOUNT_INFO }}
+      deploymentType: 'Create'
+      commandOptions: '-var-file=variables/stage.tfvars'
+      storageKey: 'projectName/stage/test_rg.tfstate'
+      target-env: stage
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy_production:
+    name: 'Deploy to production'
+    needs: deploy_stage
+    uses: yorkutest/templates/.github/workflows/tf-plan-apply_env.yml@maxtest
+    with:
+      storageAccountInfo: ${{ vars.TF_STORAGE_ACCOUNT_INFO }}
+      deploymentType: 'Create'
+      commandOptions: '-var-file=variables/production.tfvars'
+      storageKey: 'projectName/production/test_rg.tfstate'
+      target-env: stage
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
