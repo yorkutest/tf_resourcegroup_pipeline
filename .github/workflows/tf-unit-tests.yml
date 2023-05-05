@@ -16,7 +16,7 @@ jobs:
     with:
       storageAccountInfo: ${{ vars.TF_STORAGE_ACCOUNT_INFO }}
       deploymentType: 'Plan'
-      commandOptions: '-var-file=variables/dev.tfvars'
+      commandOptions: '-var-file=variables/development.tfvars'
       storageKey: 'projectName/dev/test_rg.tfstate'
       target-env: development
     secrets:
