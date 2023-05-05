@@ -3,7 +3,6 @@
 This is a sample repository that shows how to use GitHub Actions workflows to manage Azure infrastructure with Terraform. 
 
 ## Architecture
-
 <img width="2159" alt="GitHub Actions CICD for Terraform" src="https://user-images.githubusercontent.com/1248896/189254453-439dd558-fc6c-4377-b01c-d5e54cc49403.png">
 
 ## Dataflow
