@@ -4,3 +4,4 @@ module "rg" {
   resourceGroupLocation = var.resourceGroupLocation
   tags                  = var.tags
 }
+
