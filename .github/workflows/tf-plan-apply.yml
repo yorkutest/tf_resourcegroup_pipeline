@@ -3,7 +3,7 @@ name: 'Terraform Stage and Prod Deployment'
 on:
   push:
     tags:
-       - '*'
+       - 'release/*'
 
 jobs:
   deploy_stage:
