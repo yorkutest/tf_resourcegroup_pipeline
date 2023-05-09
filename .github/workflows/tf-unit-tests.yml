@@ -2,9 +2,9 @@ name: 'Terraform Unit Tests'
 
 on:
   push:
-    branches:
-      - '!main'
-      - '!release/*'
+    branches-ignore:
+      - 'main'
+      - 'release/*'
 
 
 jobs:
