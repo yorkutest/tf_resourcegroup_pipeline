@@ -9,11 +9,11 @@ on:
 jobs:
   unit-tests:
     name: 'Terraform Unit Tests'
-    uses: yorkutest/templates/.github/workflows/tf-unit-tests.yml@v0.2
+    uses: yorkutest/templates/.github/workflows/tf-unit-tests.yml@release/v0.3
 
   deploy_dev:
     name: 'Deploy to development'
-    uses: yorkutest/templates/.github/workflows/tf-plan-apply_env.yml@v0.2
+    uses: yorkutest/templates/.github/workflows/tf-plan-apply_env.yml@release/v0.3
     needs: [unit-tests]
     with:
       storageAccountInfo: ${{ vars.TF_STORAGE_ACCOUNT_INFO }}
