@@ -9,7 +9,7 @@ on:
 jobs:
   deploy_dev:
     name: 'Deploy to development'
-    uses: yorkutest/templates/.github/workflows/tf-plan-apply_env.yml@maxtest
+    uses: yorkutest/templates/.github/workflows/tf-plan-apply_env.yml@main
     with:
       storageAccountInfo: ${{ vars.TF_STORAGE_ACCOUNT_INFO }}
       deploymentType: 'Create'
