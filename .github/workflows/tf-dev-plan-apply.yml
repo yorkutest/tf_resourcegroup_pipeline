@@ -1,4 +1,4 @@
-name: 'Terraform provisioning'
+name: 'Terraform Dev Deploy'
 
 on:
   push:
