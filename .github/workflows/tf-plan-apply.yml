@@ -6,9 +6,13 @@ on:
        - 'release/*'
 
 jobs:
+  unit-tests:
+    name: 'Terraform Unit Tests'
+    uses: yorkutest/templates/.github/workflows/tf-unit-tests.yml@v0.2
+
   deploy_stage:
     name: 'Deploy to staging'
-    uses: yorkutest/templates/.github/workflows/tf-plan-apply_env.yml@v0.1
+    uses: yorkutest/templates/.github/workflows/tf-plan-apply_env.yml@v0.2
     with:
       storageAccountInfo: ${{ vars.TF_STORAGE_ACCOUNT_INFO }}
       deploymentType: 'Create'
@@ -21,7 +25,7 @@ jobs:
   deploy_production:
     name: 'Deploy to production'
     needs: deploy_stage
-    uses: yorkutest/templates/.github/workflows/tf-plan-apply_env.yml@v0.1
+    uses: yorkutest/templates/.github/workflows/tf-plan-apply_env.yml@v0.2
     with:
       storageAccountInfo: ${{ vars.TF_STORAGE_ACCOUNT_INFO }}
       deploymentType: 'Create'
