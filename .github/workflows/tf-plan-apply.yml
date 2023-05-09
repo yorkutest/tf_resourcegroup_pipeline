@@ -1,9 +1,9 @@
-name: 'Terraform provisioning'
+name: 'Terraform Stage and Prod Deployment'
 
 on:
   push:
     tags:
-      - '*'
+       - '*'
 
 jobs:
   deploy_stage:
