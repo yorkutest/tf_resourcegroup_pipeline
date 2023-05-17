@@ -21,7 +21,7 @@ provider "azurerm" {
   features {}
   skip_provider_registration = true
   subscription_id            = var.subscriptionId
-  use_oidc        = true
+  use_oidc                   = true
 
   # for GitHub Actions
   oidc_request_token = var.oidc_request_token
