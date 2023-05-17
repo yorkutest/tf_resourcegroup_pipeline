@@ -9,10 +9,12 @@ jobs:
   call-workflow:
     name: 'Terraform Configuration Drift Detection'
     permissions:
-        issues: write
-    uses: yorkutest/templates/.github/workflows/tf-drift.yml@maxtest
+      issues: write
+      id-token: write
+      contents: read
+    uses: yorkutest/templates/.github/workflows/tf-drift.yml@release/v0.3
     with:
-      storage-key: terraform.tfstate
+      storage-key: 'projectName/stage/test_rg.tfstate'
       storage-account-info: ${{ vars.TF_STORAGE_ACCOUNT_INFO }}
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}

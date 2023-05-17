@@ -6,6 +6,7 @@ on:
       - main
   workflow_dispatch:
 
+
 jobs:
   unit-tests:
     name: 'Terraform Unit Tests'
@@ -15,6 +16,9 @@ jobs:
     name: 'Deploy to development'
     uses: yorkutest/templates/.github/workflows/tf-plan-apply_env.yml@release/v0.3
     needs: [unit-tests]
+    permissions:
+      id-token: write
+      contents: read
     with:
       storageAccountInfo: ${{ vars.TF_STORAGE_ACCOUNT_INFO }}
       deploymentType: 'Create'
