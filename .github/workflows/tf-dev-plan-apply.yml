@@ -13,17 +13,17 @@ permissions:
 jobs:
   unit-tests:
     name: 'Terraform Unit Tests'
-    uses: yorkutest/templates/.github/workflows/tf-unit-tests.yml@release/v0.8
+    uses: yorkutest/templates/.github/workflows/tf-unit-tests.yml@release/v0.9
 
   deploy_dev:
     name: 'Deploy to development'
-    uses: yorkutest/templates/.github/workflows/tf-plan-apply_env.yml@release/v0.8
+    uses: yorkutest/templates/.github/workflows/tf-plan-apply_env.yml@release/v0.9
     needs: [unit-tests]
     with:
       storageAccountInfo: ${{ vars.TF_STORAGE_ACCOUNT_INFO }}
       deploymentType: 'Create'
       commandOptions: '-var-file=variables/development.tfvars'
-      storageKey: 'hubspoke/dev/hub_spoke.tfstate'
+      storageKey: 'dev/testrg/rg.tfstate'
       targetEnv: development
     secrets: inherit
 #      token: ${{ secrets.GITHUB_TOKEN }}
