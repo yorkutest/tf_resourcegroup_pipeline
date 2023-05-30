@@ -28,4 +28,3 @@ jobs:
       targetEnv: development
     secrets: inherit
 #      token: ${{ secrets.GITHUB_TOKEN }}
-
