@@ -1,5 +1,5 @@
 # Sample values
-resourceGroupName = "rg-terraform-stage-github-actions"
+resourceGroupName = "rg-terraform-stage-demo"
 subscriptionId    = "ce4ae544-b658-48c0-a894-29f67af78ad7"
 tags = {
   "Owner"      = "SMS"
