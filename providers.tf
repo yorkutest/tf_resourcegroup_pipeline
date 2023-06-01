@@ -7,7 +7,7 @@ terraform {
     }
   }
   backend "azurerm" {
-        use_oidc = true
+    use_oidc = true
   }
 }
 
@@ -15,6 +15,6 @@ provider "azurerm" {
   features {}
   skip_provider_registration = true
   use_oidc                   = true
-  subscription_id = var.subscriptionId
+  subscription_id            = var.subscriptionId
 }
 
