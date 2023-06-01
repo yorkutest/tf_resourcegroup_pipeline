@@ -1,25 +1,30 @@
 name: 'Terraform Unit Tests'
 
 on:
+  workflow_dispatch:
+
   push:
     branches-ignore:
       - 'main'
       - 'release/*'
 
-
+permissions:
+  id-token: write
+  contents: read
+      
 jobs:
   unit-tests:
     name: 'Terraform Unit Tests'
-    uses: yorkutest/templates/.github/workflows/tf-unit-tests.yml@v0.2
+    uses: yorkutest/templates/.github/workflows/tf-unit-tests.yml@main
   dev-plan:
     name: 'Terraform Dev Plan'
     needs: [unit-tests]
-    uses: yorkutest/templates/.github/workflows/tf-plan-apply_env.yml@v0.2
+    uses: yorkutest/templates/.github/workflows/tf-plan-apply_env.yml@main
     with:
       storageAccountInfo: ${{ vars.TF_STORAGE_ACCOUNT_INFO }}
       deploymentType: 'Plan'
       commandOptions: '-var-file=variables/development.tfvars'
-      storageKey: 'projectName/dev/test_rg.tfstate'
-      target-env: development
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
+      storageKey: 'dev/testrg/rg.tfstate'
+      targetEnv: development
+    secrets: inherit
+

@@ -3,16 +3,18 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "3.55.0"
+      version = "3.56.0"
     }
   }
   backend "azurerm" {
+    use_oidc = true
   }
 }
 
 provider "azurerm" {
   features {}
   skip_provider_registration = true
-  use_msi                    = true
+  use_oidc                   = true
   subscription_id            = var.subscriptionId
 }
+

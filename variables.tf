@@ -1,7 +1,8 @@
-variable "resourceGroupName" {
+variable "subscriptionId" {
   type = string
 }
-variable "subscriptionId" {
+
+variable "resourceGroupName" {
   type = string
 }
 
