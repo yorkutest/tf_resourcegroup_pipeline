@@ -26,5 +26,3 @@ jobs:
       storageKey: 'dev/testrg/rg.tfstate'
       targetEnv: development
     secrets: inherit
-#      token: ${{ secrets.GITHUB_TOKEN }}
-
